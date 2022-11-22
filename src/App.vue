@@ -1,9 +1,9 @@
 <script setup>
-
+import Prototype from './components/Prototype.vue';
 </script>
 
 <template>
-  <h1>Hello</h1>
+  <Prototype />
 </template>
 
 <style lang="scss">
