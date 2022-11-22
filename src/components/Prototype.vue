@@ -1,8 +1,8 @@
 <template>
     <form @submit.prevent="">
-        <!-- no need pass userInput as an argument since you can directly access it in the even handler function->
+        <!-- no need pass userInput as an argument since you can directly access it in the even handler function -->
         <input 
-            @keyup.enter="zxcvbn(userInput)" 
+            @keyup.enter="userInputFxn" 
             type="text" 
             v-model="userInput" 
             placeholder="Enter password"
@@ -14,6 +14,7 @@
 <script setup>
 /* add an import for zxcvbn here */
 import { ref } from 'vue'
+import zxcvbn from 'zxcvbn'
 
 const userInput = ref('')
 
@@ -27,8 +28,8 @@ const userInput = ref('')
     
     so it's not a good idea to name your event handler function zxcvbn
 */
-const zxcvbn = (userInput) => {
-    console.log(userInput)
+const userInputFxn = () => {
+    console.log(zxcvbn(userInput.value))
 }
 
 </script>
