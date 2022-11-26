@@ -1,29 +1,17 @@
 <script setup>
+
 import Prototype from './components/Prototype.vue';
+
 </script>
 
 <template>
-  <Prototype />
+  <div class="container">
+    <h1 class="heading">"Check your <span>Strength</span> of your password"</h1>
+    <Prototype class="Prototype"/>
+  </div>
+
 </template>
 
 <style lang="scss">
-
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
+@import './assets/base.scss';
 </style>
