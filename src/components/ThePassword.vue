@@ -8,7 +8,10 @@
         class="input"
     >
 
-    <div class="status">
+    <p>Count: {{count}}</p>
+    <button class="btn btn--add" @click="count++">Add</button> <span><button class="btn btn--sub" @click="count--">substract</button></span>
+
+    <!-- <div class="status">
         <p v-if="zxcvbn(userInput).score === 0" class="status__name">Weak 
             <span class="status__color status__color--weak"></span>
         </p>
@@ -31,7 +34,7 @@
     </div>
 
     <p v-if="zxcvbn(userInput).feedback.warning !== ''" class="feedback"><span class="feedback--info">Warning</span> {{zxcvbn(userInput).feedback.warning}}</p>
-    <p v-if="zxcvbn(userInput).feedback.suggestions.length !== 0" class="feedback"><span class="feedback--info">Suggestion</span> {{zxcvbn(userInput).feedback.suggestions[0]}}</p>
+    <p v-if="zxcvbn(userInput).feedback.suggestions.length !== 0" class="feedback"><span class="feedback--info">Suggestion</span> {{zxcvbn(userInput).feedback.suggestions[0]}}</p> -->
 </template>
 
 <script setup>
@@ -39,8 +42,44 @@ import { ref } from 'vue'
 import zxcvbn from 'zxcvbn'
 
 const userInput = ref('')
+const count = ref('0')
 
 const userInputFxn = () => {
     return console.log(zxcvbn(userInput.value))
 }
 </script>
+
+
+<style lang="scss" scoped>
+
+$text-primary-color: #C3DEEF;
+$text-secondary-color: #1B4965;
+$bg-color: #F5F5F5;
+$weak-passowrd-color: #ff5f55;
+
+.input{
+    border: 1px solid $text-primary-color;
+    width: 100%;
+    height: auto;
+    outline: $text-primary-color;
+    border-radius: 5rem;
+    padding: 1rem 2rem;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+    
+    &[type="text"]{
+        font-size: medium;
+        color: $text-secondary-color;
+    }
+
+    &::placeholder {
+        transform: translateX(0);
+        opacity: 1;
+        transition: 0.5s;
+    }
+
+    &:focus::placeholder{
+        transform: translateX(10px);
+        opacity: 0;
+    }
+}
+</style>
