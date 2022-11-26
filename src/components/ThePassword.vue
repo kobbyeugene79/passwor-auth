@@ -1,15 +1,16 @@
 <template>
     
-    <input 
-        @keyup.enter="userInputFxn" 
-        type="text" 
-        v-model="userInput" 
-        placeholder="Enter password"
-        class="input"
-    >
+    <div class="input-container">
+        <input 
+            @keyup.enter="userInputFxn" 
+            type="text" 
+            v-model="userInput" 
+            placeholder="Enter password"
+            class="input"
+        >
 
-    <p>Count: {{count}}</p>
-    <button class="btn btn--add" @click="count++">Add</button> <span><button class="btn btn--sub" @click="count--">substract</button></span>
+        <div class="passwordLength">{{userInput.length}}</div>
+    </div>
 
     <!-- <div class="status">
         <p v-if="zxcvbn(userInput).score === 0" class="status__name">Weak 
@@ -57,10 +58,28 @@ $text-secondary-color: #1B4965;
 $bg-color: #F5F5F5;
 $weak-passowrd-color: #ff5f55;
 
+.input-container{
+    position: relative;
+    width: 100%;
+    border: 1px solid $weak-passowrd-color;
+    border-radius: 5rem;
+
+    .passwordLength{
+        font-family: Roboto Mono;
+        color: $text-primary-color;
+        position: absolute;
+        align-items: center;
+        right: 0;
+        top: 0;
+        padding: 1.07rem 2rem;
+        background: #1B4965;
+        border-radius: 5rem;
+        box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 25%);
+    }
+}
 .input{
     border: 1px solid $text-primary-color;
     width: 100%;
-    height: auto;
     outline: $text-primary-color;
     border-radius: 5rem;
     padding: 1rem 2rem;
