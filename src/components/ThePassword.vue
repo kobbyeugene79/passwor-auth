@@ -61,7 +61,6 @@ $weak-passowrd-color: #ff5f55;
 .input-container{
     position: relative;
     width: 100%;
-    border: 1px solid $weak-passowrd-color;
     border-radius: 5rem;
 
     .passwordLength{
