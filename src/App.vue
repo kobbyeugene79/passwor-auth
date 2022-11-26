@@ -7,7 +7,10 @@ import Prototype from './components/Prototype.vue';
 <template>
   <div class="container">
     <h1 class="heading">"Check the <span>Strength</span> of your password"</h1>
-    <Prototype class="Prototype"/>
+    <Prototype
+      v-model="userInput" 
+      class="Prototype"
+    />
   </div>
 
 </template>

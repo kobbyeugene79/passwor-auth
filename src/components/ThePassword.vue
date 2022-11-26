@@ -2,9 +2,10 @@
     
     <div class="input-container">
         <input 
+            :value="modelValue"
             @keyup.enter="userInputFxn" 
             type="text" 
-            v-model="userInput" 
+            @input="$emit('update:modelValue', $event.target.value)"
             placeholder="Enter password"
             class="input"
         >
@@ -42,6 +43,9 @@
 import { ref } from 'vue'
 import zxcvbn from 'zxcvbn'
 
+defineProps(['modelValue'])
+defineEmits(['update:modelValue'])
+
 const userInput = ref('')
 const count = ref('0')
 
@@ -70,8 +74,9 @@ $weak-passowrd-color: #ff5f55;
         align-items: center;
         right: 0;
         top: 0;
+        bottom: 0;
         padding: 1.07rem 2rem;
-        background: #1B4965;
+        background: $text-secondary-color;
         border-radius: 5rem;
         box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 25%);
     }
