@@ -1,7 +1,5 @@
 <template>
-    <form @submit.prevent="">
-        <ThePassword />
-    </form>
+    
 </template>
 
 
