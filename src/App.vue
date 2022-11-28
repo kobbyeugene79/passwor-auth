@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from 'vue';
+import zxcvbn from 'zxcvbn';
 import Prototype from './components/Prototype.vue';
 import ThePassword from './components/ThePassword.vue';
 
 const passwordInput = ref('')
-
 </script>
 
 <template>
@@ -13,9 +13,9 @@ const passwordInput = ref('')
     <form @submit.prevent="">
       <ThePassword v-model="passwordInput" />
     </form>
-    <Prototype
+    <!-- <Prototype
       class="Prototype"
-    />
+    /> -->
   </div>
 
 </template>

@@ -2,15 +2,15 @@
     
     <div class="input-container">
         <input 
-            :value="modelValue"
             @keyup.enter="userInputFxn" 
             type="text" 
+            :value="modelValue"
             @input="$emit('update:modelValue', $event.target.value)"
             placeholder="Enter password"
             class="input"
         >
 
-        <div class="passwordLength">{{userInput.length}}</div>
+        <div class="passwordLength">{{modelValue.length}}</div>
     </div>
 
     <!-- <div class="status">
@@ -52,6 +52,7 @@ const count = ref('0')
 const userInputFxn = () => {
     return console.log(zxcvbn(userInput.value))
 }
+
 </script>
 
 
