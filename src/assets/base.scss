@@ -1,9 +1,15 @@
-
+$background-color:#FFEEDB;
 $bg-color: #F5F5F5;
+
 $weak-passowrd-color: #ff5f55;
+$weak-passowrd-color-light: #FFBEBA;
+
 $medium-password-color: #EDB458;
-$strong-password-color: #95D6A3;
-$strongest-password-color: #4CB963;
+$medium-password-color-light: #F7DDB4;
+
+$strong-password-color-light: #95D6A3;
+$strong-password-color: #4CB963;
+
 $text-primary-color: #C3DEEF;
 $text-secondary-color: #1B4965;
 
@@ -16,7 +22,7 @@ $text-secondary-color: #1B4965;
 }
   
 #app{
-    background: $bg-color;
+    background: $background-color;
     justify-content: center;
     width: 100%;
     height: 100vh;
@@ -47,42 +53,6 @@ $text-secondary-color: #1B4965;
 
     &--message{
         margin-left: 1rem;
-    }
-}
-
-.status{
-    display: flex;
-    align-items: center;
-    font-style: italic;
-    margin: 1.5rem 0;
-
-    &__name{
-        display: flex;
-        animation: horizontal-shaking .5s ease-in-out;
-    }
-
-    &__color{
-        height: 28px;
-        width: 44px;
-        border-radius: 32px;
-        margin-left: 1rem;
-
-        &--weak{
-            background-color: $weak-passowrd-color;
-            border: $weak-passowrd-color;
-        }
-
-        &--meduim{
-            background-color: $medium-password-color;
-        }
-
-        &--strong{
-            background-color: $strong-password-color;
-        }
-
-        &--strongest{
-            background-color: $strongest-password-color;
-        }
     }
 }
 
