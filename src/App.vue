@@ -22,5 +22,6 @@ const passwordStrengthData = computed(() => zxcvbn(passwordInput.value))
 </template>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Roboto+Mono&display=swap');
 @import './assets/base.scss';
 </style>

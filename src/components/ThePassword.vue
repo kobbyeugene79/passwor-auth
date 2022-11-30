@@ -1,6 +1,7 @@
 <template>
     
     <div class="input-container">
+        <!-- @keyup.enter is not needed -->
         <input 
             @keyup.enter="userInputFxn" 
             type="text" 
@@ -17,14 +18,18 @@
 
 <script setup>
 import { ref } from 'vue'
+// no need for zxcvbn here
 import zxcvbn from 'zxcvbn'
 
 defineProps(['modelValue'])
 defineEmits(['update:modelValue'])
 
 const userInput = ref('')
+
+//what does it do?
 const count = ref('0')
 
+//remove test functions after test
 const userInputFxn = () => {
     return console.log(zxcvbn(userInput.value))
 }
@@ -43,11 +48,15 @@ $weak-passowrd-color: #ff5f55;
     position: relative;
     width: 100%;
     border-radius: 5rem;
-
+    //no BEM?
+    //also always use keebab case for class names: .password-length
     .passwordLength{
+        // font-family: 'Roboto Mono', monospace;
+        // font-size: 1.25rem;
         font-family: Roboto Mono;
         color: $text-primary-color;
         position: absolute;
+        // display: flex;
         align-items: center;
         right: 0;
         top: 0;
@@ -55,17 +64,22 @@ $weak-passowrd-color: #ff5f55;
         padding: 1.07rem 2rem;
         background: $text-secondary-color;
         border-radius: 5rem;
-        box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 25%);
+        box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 25%)
     }
 }
 .input{
+    // border: none;
     border: 1px solid $text-primary-color;
     width: 100%;
     outline: $text-primary-color;
     border-radius: 5rem;
+    
     padding: 1rem 2rem;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
     
+
+    /*there is no need for this since you are never going to use the .input class for any other type input element
+    (just add styles to the block directly)*/
     &[type="text"]{
         font-size: medium;
         color: $text-secondary-color;
