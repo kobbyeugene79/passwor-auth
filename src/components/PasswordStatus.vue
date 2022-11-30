@@ -26,22 +26,14 @@
             <span class="status__color status__color--strong animate4"></span>
         </p>
     </div>
-
-    <!-- <span class="line"></span> -->
-
-    <!-- <div class="crackTime">
-        <div><img src="../assets/timer.svg" alt="timer SVG"> </div>
-        <div class="crackTime--message"> {{zxcvbn(passwordProp).crack_times_display.offline_fast_hashing_1e10_per_second}} </div>
-    </div> -->
-
-    <!-- <p v-if="zxcvbn(passwordProp).feedback.warning !== ''" class="feedback"><span class="feedback--info">Warning</span> {{zxcvbn(passwordProp).feedback.warning}}</p>
-    <p v-if="zxcvbn(passwordProp).feedback.suggestions.length !== 0" class="feedback"><span class="feedback--info">Suggestion</span> {{zxcvbn(passwordProp).feedback.suggestions[0]}}</p> -->
+ 
 </template>
 
 <script setup>
 import zxcvbn from 'zxcvbn';
 
 const propValue = defineProps(['passwordProp'])
+//delete test functions when you are done testing
 const stuusd = () =>{
     console.log(propValue.passwordProp);
 }
@@ -67,7 +59,7 @@ $strong-password-color: #4CB963;
     &__name{
         display: flex;
     }
-    
+
     &__color{
         position: relative;
         height: 28px;
@@ -75,7 +67,8 @@ $strong-password-color: #4CB963;
         border-radius: 32px;
         margin-left: 1rem;
         animation: elongation .5s ease-in backwards;
-
+        
+        // never create an element of an element (only blocks can have elements)
         &__circle{
             width: 28px;
             height: 28px;
