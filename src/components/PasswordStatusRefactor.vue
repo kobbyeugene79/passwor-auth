@@ -60,7 +60,6 @@ import { computed } from 'vue'
             &--bg-weak{background-color: $color-weak-light;}
             &--bg-medium{background-color: $color-medium-light;}
             &--bg-strong{background-color: $color-strong-light;}
-            &--bg-strongest{background-color: $color-strong-light;}
             &--selected-bg-weak{background-color: $color-weak;}
             &--selected-bg-medium{background-color: $color-medium;}
             &--selected-bg-strong{background-color: $color-strong;}
