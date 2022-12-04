@@ -25,11 +25,11 @@ import { computed } from 'vue'
 <template>
   <div class="status">
     <span class="status__description">{{ strength }}</span>
-    <div v-for="index in 4" class="status__circle" :class="[isSelected(index) ? selectedBackgroundClass : backgroundClass]"></div>
+    <div v-for="index in 4" class="status__circle" :key="index" :class="[isSelected(index) ? selectedBackgroundClass : backgroundClass]"></div>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scope>
     $color-weak: #ff5f55;
     $color-medium: #EDB458;
     $color-strong: #4CB963;

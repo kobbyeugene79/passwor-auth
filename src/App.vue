@@ -1,8 +1,9 @@
 <script setup>
 import { ref, computed } from 'vue';
 import zxcvbn from 'zxcvbn';
-import PasswordStatus from '@/components/PasswordStatus.vue';
-// import PasswordStatusRefactor from './components/PasswordStatusRefactor.vue' 
+import TheFeedback from './components/TheFeedback.vue';
+// import PasswordStatus from '@/components/PasswordStatus.vue';
+import PasswordStatusRefactor from './components/PasswordStatusRefactor.vue' 
 import ThePassword from './components/ThePassword.vue';
 
 const passwordInput = ref('')
@@ -15,8 +16,11 @@ const passwordStrengthData = computed(() => zxcvbn(passwordInput.value))
   <div class="container">
     <h1 class="heading">"Check the <span>Strength</span> of your password"</h1>
     <the-password v-model="passwordInput" />
-    <password-status :passwordProp="passwordInput"/>
-    <!-- <password-status-refactor :value="passwordStrengthData.score" /> -->
+    <!-- <password-status :passwordProp="passwordStrengthData.score"/> -->
+    <password-status-refactor :value="passwordStrengthData.score" />
+
+    <the-feedback :name="`Warning`" :content="passwordStrengthData.feedback.warning" />
+    <the-feedback :name="`Suggestion`" :content="passwordStrengthData.feedback.suggestions[0]" />
   </div>
 
 </template>

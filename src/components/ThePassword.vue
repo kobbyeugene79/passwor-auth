@@ -3,7 +3,6 @@
     <div class="input-container">
         <!-- @keyup.enter is not needed -->
         <input 
-            @keyup.enter="userInputFxn" 
             type="text" 
             :value="modelValue"
             @input="$emit('update:modelValue', $event.target.value)"
@@ -19,7 +18,6 @@
 <script setup>
 import { ref } from 'vue'
 // no need for zxcvbn here
-import zxcvbn from 'zxcvbn'
 
 defineProps(['modelValue'])
 defineEmits(['update:modelValue'])
@@ -27,12 +25,8 @@ defineEmits(['update:modelValue'])
 const userInput = ref('')
 
 //what does it do?
-const count = ref('0')
 
 //remove test functions after test
-const userInputFxn = () => {
-    return console.log(zxcvbn(userInput.value))
-}
 
 </script>
 
@@ -73,17 +67,14 @@ $weak-passowrd-color: #ff5f55;
     width: 100%;
     outline: $text-primary-color;
     border-radius: 5rem;
-    
+    font-size: medium;
+    color: $text-secondary-color;
     padding: 1rem 2rem;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
     
 
     /*there is no need for this since you are never going to use the .input class for any other type input element
     (just add styles to the block directly)*/
-    &[type="text"]{
-        font-size: medium;
-        color: $text-secondary-color;
-    }
 
     &::placeholder {
         transform: translateX(0);
