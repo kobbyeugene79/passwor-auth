@@ -19,8 +19,16 @@ const passwordStrengthData = computed(() => zxcvbn(passwordInput.value))
     <!-- <password-status :passwordProp="passwordStrengthData.score"/> -->
     <password-status-refactor :value="passwordStrengthData.score" />
 
-    <the-feedback :name="`Warning`" :content="passwordStrengthData.feedback.warning" />
-    <the-feedback :name="`Suggestion`" :content="passwordStrengthData.feedback.suggestions[0]" />
+    <the-feedback 
+      name="Warning" 
+      :content="passwordStrengthData.feedback.warning" 
+    />
+    <the-feedback 
+      name="Suggestion" 
+      v-for="(suggest, index) in passwordStrengthData.feedback.suggestions" 
+      :key="index" 
+      :content="suggest" 
+    />
   </div>
 
 </template>

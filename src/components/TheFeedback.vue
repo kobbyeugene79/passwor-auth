@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <p class="feedback">
+    <p v-if="(content === '' || content !== 0)" class="feedback">
         <span class="feedback__info">{{name}}</span> 
         {{content}}
     </p>
